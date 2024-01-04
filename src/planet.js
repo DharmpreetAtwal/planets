@@ -1,10 +1,10 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { MyTransform } from "./index.js";
 
 export const Planet = () => {
   const [isDragging, setIsDragging] = useState(false);
-  const [x, setX] = useState(50);
-  const [y, setY] = useState(50);
+  const [x, setX] = useState(200);
+  const [y, setY] = useState(200);
   const [r, setR] = useState(50);
 
   const clickX = useRef(0);
@@ -22,7 +22,6 @@ export const Planet = () => {
   const handleMove = (event) => {
     if (isDragging) {
       const coord = toSVGCoordinates(event);
-      console.log(coord);
       setX(coord[0] - clickX.current);
       setY(coord[1] - clickY.current);
     }

@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom/client";
-import { Planet } from "./planets.js";
+import { Planet } from "./planet.js";
 import { useState, useRef, useEffect, createContext } from "react";
+import "./style.css";
 
 export const MyTransform = createContext();
 const MyTransformProvider = ({ children, svgRef }) => {
@@ -34,8 +35,8 @@ const MyTransformProvider = ({ children, svgRef }) => {
 const Map = () => {
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
-  const [width, setWidth] = useState(5000);
-  const [height, setHeight] = useState(5000);
+  const [width, setWidth] = useState(1000);
+  const [height, setHeight] = useState(1000);
 
   const [viewBoxX, setViewBoxX] = useState(0);
   const [viewBoxY, setViewBoxY] = useState(0);
@@ -43,11 +44,6 @@ const Map = () => {
   const [viewBoxHeight, setViewBoxHeight] = useState(1000);
 
   const svgRef = useRef(null);
-
-  useEffect(() => {
-    // Update the body's overflow property based on the state
-    document.body.style.overflow = "hidden";
-  }, []);
 
   return (
     <>
